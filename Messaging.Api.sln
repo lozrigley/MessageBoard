@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging.Api", "src\Messaging.Api\Messaging.Api.csproj", "{0310D112-6C82-493C-821E-A92CE3162D33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging.Application", "src\Messaging.Application\Messaging.Application.csproj", "{9B81AB97-4320-4C37-9B98-7EFA44A1F4E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging.Application", "src\Messaging.Application\Messaging.Application.csproj", "{9B81AB97-4320-4C37-9B98-7EFA44A1F4E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging.Domain", "src\Messaging.Domain\Messaging.Domain.csproj", "{CFC8C0D7-F9B3-4440-8824-27DC54D84A98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging.Domain", "src\Messaging.Domain\Messaging.Domain.csproj", "{CFC8C0D7-F9B3-4440-8824-27DC54D84A98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging.Infrastructure", "src\Messaging.Infrastructure\Messaging.Infrastructure.csproj", "{8EF57E51-26AB-47BD-88AE-3EFBE5C8A480}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging.Infrastructure", "src\Messaging.Infrastructure\Messaging.Infrastructure.csproj", "{8EF57E51-26AB-47BD-88AE-3EFBE5C8A480}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{711EB8FA-C93D-4F6C-A149-0C0737FF75BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging.Domain.UnitTests", "src\Messaging.Domain.UnitTests\Messaging.Domain.UnitTests.csproj", "{A65408A4-8B97-41A6-BB4D-A0226191D16C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{711EB8FA-C93D-4F6C-A149-0C0737FF75BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{711EB8FA-C93D-4F6C-A149-0C0737FF75BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{711EB8FA-C93D-4F6C-A149-0C0737FF75BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65408A4-8B97-41A6-BB4D-A0226191D16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65408A4-8B97-41A6-BB4D-A0226191D16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65408A4-8B97-41A6-BB4D-A0226191D16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65408A4-8B97-41A6-BB4D-A0226191D16C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

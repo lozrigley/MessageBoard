@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Messaging.Application.Command.DAL;
 using Messaging.Application.Query.DAL;
+using Messaging.Domain.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -63,6 +64,8 @@ namespace Messaging.Api
 
             services.AddSingleton<IQueryDal, Infrastructure.MongoDb.QueryDal>();
             services.AddSingleton<ICommandDal, Infrastructure.MongoDb.CommandDal>();
+
+            services.AddSingleton<IValidator, Validator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +75,7 @@ namespace Messaging.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Messaging API"));
 
