@@ -8,11 +8,36 @@ using System.Threading.Tasks;
 
 namespace Messaging.Application.Query
 {
-    public class GetAllMessagesQueryHandler : IRequestHandler<GetAllMessagesQuery, IEnumerable<Message>>
+    public class GetAllMessagesQueryHandler : IRequestHandler<GetAllMessagesQuery, GetAllMessagesResponse>
     {
-        public async Task<IEnumerable<Message>> Handle(GetAllMessagesQuery request, CancellationToken cancellationToken)
+        private readonly IQueryDal _dal;
+
+        public GetAllMessagesQueryHandler(IQueryDal dal)
         {
-            throw new NotImplementedException();
+            _dal = dal;
+        }
+
+        //public async Task<IEnumerable<Message>> Handle(GetAllMessagesQuery request, CancellationToken cancellationToken)
+        //{
+        //    // This is bypassing Domain completely for now
+        //    var getAllMessagesRequest = new GetAllMessagesRequest
+        //    {
+
+        //    };
+
+        //    var response =  await _dal.GetAllMessagesAsync(getAllMessagesRequest, cancellationToken);
+
+        //    return response.Messages;
+        //}
+
+        public async Task<GetAllMessagesResponse> Handle(GetAllMessagesQuery request, CancellationToken cancellationToken)
+        {
+            var getAllMessagesRequest = new GetAllMessagesRequest
+            {
+
+            };
+
+            return await _dal.GetAllMessagesAsync(getAllMessagesRequest, cancellationToken);
         }
     }
 }

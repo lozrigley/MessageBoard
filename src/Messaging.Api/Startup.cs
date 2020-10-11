@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Messaging.Application.Command.DAL;
 using Messaging.Application.Query.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +35,7 @@ namespace Messaging.Api
                 builder.AllowAnyMethod().AllowAnyHeader().AllowCredentials().SetIsOriginAllowed(_ => true);
             }));
 
-            services.AddMediatR(typeof(Startup).Assembly, typeof(Message).Assembly);
+            services.AddMediatR(typeof(Startup).Assembly, typeof(Message).Assembly, typeof(Messaging.Infrastructure.MongoDb.Message).Assembly);
 
             services.AddSwaggerGen(options =>
             {
@@ -55,6 +56,13 @@ namespace Messaging.Api
                     opt.UseMemberCasing();
                     opt.SerializerSettings.Converters.Add(new StringEnumConverter { });
                 });
+
+
+            var infrastructure = this.Configuration.GetSection("Infrastructure");
+            services.Configure<Infrastructure.MongoDb.Settings>(infrastructure);
+
+            services.AddSingleton<IQueryDal, Infrastructure.MongoDb.QueryDal>();
+            services.AddSingleton<ICommandDal, Infrastructure.MongoDb.CommandDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

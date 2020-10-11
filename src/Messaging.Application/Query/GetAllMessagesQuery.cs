@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Messaging.Application.Query
 {
-    public class GetAllMessagesQuery : IRequest<IEnumerable<Message>>
+    public class GetAllMessagesQuery : IRequest<GetAllMessagesResponse>
     {
     }
 }
