@@ -4,6 +4,6 @@ namespace Messaging.Application.Query.DAL
 {
     public class GetAllMessagesResponse
     {
-        public IEnumerable<Message> Messages
+        public IEnumerable<Message> Messages { get; set; }
     }
 }

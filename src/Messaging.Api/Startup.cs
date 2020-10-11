@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Messaging.Application.Query.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +34,7 @@ namespace Messaging.Api
                 builder.AllowAnyMethod().AllowAnyHeader().AllowCredentials().SetIsOriginAllowed(_ => true);
             }));
 
-            //services.AddMediatR(typeof(Startup).Assembly, typeof(Application.DTO.Fabric).Assembly);
+            services.AddMediatR(typeof(Startup).Assembly, typeof(Message).Assembly);
 
             services.AddSwaggerGen(options =>
             {
