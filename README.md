@@ -27,3 +27,5 @@ I would imagine a refactor is on the cards. But would need more idea of where AP
 
 And also, would use AutoMapper and probably AutoFac for DI because I like using Modules
 
+Some sort of Pagination would be required as well as Number of messages could be millions.
+
